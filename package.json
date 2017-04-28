@@ -1,0 +1,34 @@
+{
+  "name": "meaw-cli",
+  "version": "0.0.0",
+  "description": "",
+  "keywords": [
+    "unicode",
+    "east",
+    "asian",
+    "width"
+  ],
+  "directories": {
+    "bin": "bin"
+  },
+  "scripts": {
+    "lint": "eslint bin/meaw --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/susisu/meaw-cli.git"
+  },
+  "author": "Susisu <susisu2413@yahoo.co.jp> (https://github.com/susisu)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/susisu/meaw-cli/issues"
+  },
+  "homepage": "https://github.com/susisu/meaw-cli#readme",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "meaw": "^1.0.0"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0"
+  }
+}
