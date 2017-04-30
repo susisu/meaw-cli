@@ -1,0 +1,71 @@
+#!/usr/bin/env node
+
+const meaw = require("meaw");
+
+const program     = require("commander");
+const packageInfo = require("../package.json");
+
+process.title = "meaw";
+
+program.version(packageInfo.version, "-v, --version");
+program.option("-V, --verbose", "verbose mode");
+program.option("-S, --separator <sep>", "set separator in the verbose mode (default = \"\\t\")");
+program.arguments("[string...]");
+program.action(strings => {
+  for (let i = 0; i < strings.length; i++) {
+    const string = strings[i];
+    for (const char of string) {
+      output(char, !!program.verbose, program.separator || "\t");
+    }
+  }
+  process.exit();
+});
+program.parse(process.argv);
+
+function output(char, verbose, separator) {
+  const eaw = meaw.getEAW(char);
+  if (verbose) {
+    process.stdout.write(`${char}${separator}${eaw}\n`);
+  }
+  else {
+    process.stdout.write(`${eaw}\n`);
+  }
+}
+
+function outputChunk(chunk, verbose, separator) {
+  for (let i = 0; i < chunk.length; i++) {
+    const upper = chunk.charCodeAt(i);
+    if (upper < 0xD800 || 0xDBFF < upper) {
+      // not an upper surrogate
+      output(String.fromCharCode(upper), verbose, separator);
+      continue;
+    }
+    if (i === chunk.length - 1) {
+      return String.fromCharCode(upper);
+    }
+    const lower = chunk.charCodeAt(i + 1);
+    if (lower < 0xDC00 || 0xDFFF < lower) {
+      // not a lower surrogate
+      output(String.fromCharCode(upper), verbose, separator);
+      continue;
+    }
+    output(String.fromCharCode(upper, lower), verbose, separator);
+    i += 1;
+  }
+  return "";
+}
+
+let buffer = "";
+process.stdin.setEncoding("utf8");
+process.stdin.on("readable", () => {
+  const chunk = process.stdin.read();
+  if (chunk !== null) {
+    buffer = outputChunk(buffer + chunk, !!program.verbose, program.separator || "\t");
+  }
+});
+process.stdin.on("end", () => {
+  if (buffer.length > 0) {
+    output(buffer, !!program.verbose, program.separator || "\t");
+  }
+  process.exit();
+});
