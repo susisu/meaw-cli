@@ -1,5 +1,7 @@
 #!/usr/bin/env node
 
+"use strict";
+
 const meaw = require("meaw");
 
 const program     = require("commander");
