@@ -35,6 +35,7 @@
     "no-unmodified-loop-condition": ["error"],
     "no-with": ["error"],
 
+    "strict": ["error"],
     "no-label-var": ["error"],
     "no-shadow-restricted-names": ["error"],
 
