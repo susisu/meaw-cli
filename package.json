@@ -25,10 +25,10 @@
   },
   "homepage": "https://github.com/susisu/meaw-cli#readme",
   "dependencies": {
-    "commander": "^2.9.0",
-    "meaw": "^1.0.0"
+    "commander": "^2.11.0",
+    "meaw": "^2.0.0"
   },
   "devDependencies": {
-    "eslint": "^3.19.0"
+    "eslint": "^4.11.0"
   }
 }
