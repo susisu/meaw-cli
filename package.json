@@ -13,7 +13,7 @@
   },
   "scripts": {
     "lint": "eslint bin/meaw",
-    "lint": "eslint --fix bin/meaw"
+    "lint:fix": "eslint --fix bin/meaw"
   },
   "repository": {
     "type": "git",
