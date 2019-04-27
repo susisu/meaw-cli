@@ -4,7 +4,7 @@
 
 const meaw = require("meaw");
 
-const program     = require("commander");
+const program = require("commander");
 const packageInfo = require("../package.json");
 
 process.title = "meaw";
@@ -28,8 +28,7 @@ function output(char, verbose, separator) {
   const eaw = meaw.getEAW(char);
   if (verbose) {
     process.stdout.write(`${char}${separator}${eaw}\n`);
-  }
-  else {
+  } else {
     process.stdout.write(`${eaw}\n`);
   }
 }

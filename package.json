@@ -12,7 +12,8 @@
     "bin": "bin"
   },
   "scripts": {
-    "lint": "eslint bin/meaw --fix"
+    "lint": "eslint bin/meaw",
+    "lint": "eslint --fix bin/meaw"
   },
   "repository": {
     "type": "git",
@@ -25,10 +26,11 @@
   },
   "homepage": "https://github.com/susisu/meaw-cli#readme",
   "dependencies": {
-    "commander": "^2.11.0",
-    "meaw": "^2.0.0"
+    "commander": "^2.20.0",
+    "meaw": "^4.1.0"
   },
   "devDependencies": {
-    "eslint": "^4.11.0"
+    "@susisu/eslint-config": "^0.0.2",
+    "eslint": "^5.16.0"
   }
 }
