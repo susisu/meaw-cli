@@ -13,10 +13,13 @@ program.version(packageInfo.version, "-v, --version");
 program.option("-V, --verbose", "verbose mode");
 program.option("-S, --separator <sep>", "set separator in the verbose mode (default = \"\\t\")");
 program.arguments("[string...]");
-program.action(strings => {
-  for (let i = 0; i < strings.length; i++) {
-    const string = strings[i];
-    for (const char of string) {
+program.action(strs => {
+  if (strs.length === 0) {
+    return;
+  }
+  for (let i = 0; i < strs.length; i++) {
+    const str = strs[i];
+    for (const char of str) {
       output(char, !!program.verbose, program.separator || "\t");
     }
   }
@@ -59,9 +62,10 @@ function outputChunk(chunk, verbose, separator) {
 let buffer = "";
 process.stdin.setEncoding("utf8");
 process.stdin.on("readable", () => {
-  const chunk = process.stdin.read();
-  if (chunk !== null) {
+  let chunk = process.stdin.read();
+  while (chunk !== null) {
     buffer = outputChunk(buffer + chunk, !!program.verbose, program.separator || "\t");
+    chunk = process.stdin.read();
   }
 });
 process.stdin.on("end", () => {
