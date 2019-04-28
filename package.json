@@ -11,6 +11,9 @@
   "directories": {
     "bin": "bin"
   },
+  "files": [
+    "bin"
+  ],
   "scripts": {
     "lint": "eslint bin/meaw",
     "lint:fix": "eslint --fix bin/meaw"
