@@ -27,7 +27,7 @@
   "homepage": "https://github.com/susisu/meaw-cli#readme",
   "dependencies": {
     "commander": "^2.20.0",
-    "meaw": "^4.1.0"
+    "meaw": "^4.2.0"
   },
   "devDependencies": {
     "@susisu/eslint-config": "^0.0.2",
