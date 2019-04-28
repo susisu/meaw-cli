@@ -1,7 +1,7 @@
 {
   "name": "meaw-cli",
-  "version": "2.0.0",
-  "description": "A CLI for meaw",
+  "version": "4.0.0",
+  "description": "A CLI to check characters' Unicode EAW properties",
   "keywords": [
     "unicode",
     "east",

@@ -1,5 +1,5 @@
 # meaw-cli
-A CLI for [meaw](https://github.com/susisu/meaw), outputs Unicode East Asian Width (EAW) properties of characters.
+A CLI of [meaw](https://github.com/susisu/meaw). outputs Unicode East Asian Width (EAW) properties of given characters.
 
 ## Installation
 ``` shell
