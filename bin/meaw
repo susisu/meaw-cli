@@ -9,7 +9,8 @@ const packageInfo = require("../package.json");
 
 process.title = "meaw";
 
-program.version(packageInfo.version, "-v, --version");
+const version = `${packageInfo.version} (EastAsianWidth ${meaw.eawVersion})`;
+program.version(version, "-v, --version");
 program.option("-V, --verbose", "verbose mode");
 program.option("-S, --separator <sep>", "set separator in the verbose mode (default = \"\\t\")");
 program.arguments("[string...]");
