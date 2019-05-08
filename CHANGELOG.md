@@ -1,3 +1,6 @@
+## v4.1.0 (2019-05-08)
+- Update `meaw` to v4.3.0 (EastAsianWidth 12.1.0)
+
 ## v4.0.0 (2019-04-28)
 - Update `meaw` to v4.2.0 (EastAsianWidth 12.0.0)
 - Fix input is not read from stdin
