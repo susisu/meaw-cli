@@ -33,7 +33,7 @@
     "meaw": "~4.3.0"
   },
   "devDependencies": {
-    "@susisu/eslint-config": "^0.0.2",
-    "eslint": "^5.16.0"
+    "@susisu/eslint-config": "^0.0.4",
+    "eslint": "^6.3.0"
   }
 }
